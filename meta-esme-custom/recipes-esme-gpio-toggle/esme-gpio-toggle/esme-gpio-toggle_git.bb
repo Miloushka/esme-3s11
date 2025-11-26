@@ -12,19 +12,17 @@
 LICENSE = "CLOSED"
 LIC_FILES_CHKSUM = ""
 
+SRC_URI = "git://github.com/Miloushka/linux-11.git;protocol=https;branch=master"
+
 inherit pkgconfig update-rc.d
 DEPENDS += "libgpiod (< 2.0)"
 
 INITSCRIPT_PACKAGES = "${PN}"
 INITSCRIPT_NAME:${PN} = "esme-gpio26-toggle"
 
-SRC_URI = "git://github.com/Miloushka/linux-11.git;protocol=https;branch=master \
-           file://0001-Ajout-des-fichier-pour-devtool-finish.patch \
-           "
-
 # Modify these as desired
 PV = "1.0+git"
-SRCREV = "${AUTOREV}"
+SRCREV = "bf034c102cf8f18096f00a495083a5adfb28ba5d"
 
 S = "${WORKDIR}/git"
 

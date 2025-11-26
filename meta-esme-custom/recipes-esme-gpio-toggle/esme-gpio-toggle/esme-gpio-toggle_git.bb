@@ -12,15 +12,11 @@
 LICENSE = "CLOSED"
 LIC_FILES_CHKSUM = ""
 
-inherit pkgconfig
-DEPENDS += "libgpiod (< 2.0)"
-
-SRC_URI = "git://github.com/Miloushka/linux-11.git;protocol=https;branch=scarthgap \
-           "
+SRC_URI = "git://github.com/Miloushka/linux-11.git;protocol=https;branch=scarthgap"
 
 # Modify these as desired
 PV = "1.0+git"
-SRCREV = "d8f7d5f9b9510f71dc30a472101f22877c6a0bbe"
+SRCREV = "25d82a34b05a051455488f7f55ee23503f184db4"
 
 S = "${WORKDIR}/git"
 
@@ -41,6 +37,6 @@ do_compile () {
 
 do_install () {
 	# This is a guess; additional arguments may be required
-	oe_runmake install INSTALL_DIR=${D}
+	oe_runmake install
 }
 

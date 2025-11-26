@@ -22,7 +22,7 @@ INITSCRIPT_NAME:${PN} = "esme-gpio26-toggle"
 
 # Modify these as desired
 PV = "1.0+git"
-SRCREV = "bf034c102cf8f18096f00a495083a5adfb28ba5d"
+SRCREV = "${AUTOREV}"
 
 S = "${WORKDIR}/git"
 

@@ -12,21 +12,27 @@
 LICENSE = "CLOSED"
 LIC_FILES_CHKSUM = ""
 
-inherit pkgconfig update-rc.d
-
+inherit pkgconfig
 DEPENDS += "libgpiod (< 2.0)"
 
-INITSCRIPT_PACKAGES = "${PN}"
-INITSCRIPT_NAME:${PN} = "esme-gpio26-toggle"
-
-# No information for SRC_URI yet (only an external source tree was specified)
 SRC_URI = "git://github.com/Miloushka/linux-11.git;protocol=https;branch=scarthgap \
            "
-SRCREV = "${AUTOREV}"
+
+# Modify these as desired
+PV = "1.0+git"
+SRCREV = "d8f7d5f9b9510f71dc30a472101f22877c6a0bbe"
+
+S = "${WORKDIR}/git"
+
 
 # NOTE: this is a Makefile-only piece of software, so we cannot generate much of the
 # recipe automatically - you will need to examine the Makefile yourself and ensure
 # that the appropriate arguments are passed in.
+
+do_configure () {
+	# Specify any needed configure commands here
+	:
+}
 
 do_compile () {
 	# You will almost certainly need to add additional arguments here

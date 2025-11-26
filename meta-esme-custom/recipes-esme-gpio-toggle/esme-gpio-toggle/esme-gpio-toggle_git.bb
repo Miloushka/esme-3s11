@@ -12,11 +12,19 @@
 LICENSE = "CLOSED"
 LIC_FILES_CHKSUM = ""
 
-SRC_URI = "git://github.com/Miloushka/linux-11.git;protocol=https;branch=scarthgap"
+inherit pkgconfig update-rc.d
+DEPENDS += "libgpiod (< 2.0)"
+
+INITSCRIPT_PACKAGES = "${PN}"
+INITSCRIPT_NAME:${PN} = "esme-gpio26-toggle"
+
+SRC_URI = "git://github.com/Miloushka/linux-11.git;protocol=https;branch=master \
+           file://0001-Ajout-des-fichier-pour-devtool-finish.patch \
+           "
 
 # Modify these as desired
 PV = "1.0+git"
-SRCREV = "25d82a34b05a051455488f7f55ee23503f184db4"
+SRCREV = "${AUTOREV}"
 
 S = "${WORKDIR}/git"
 
@@ -37,6 +45,6 @@ do_compile () {
 
 do_install () {
 	# This is a guess; additional arguments may be required
-	oe_runmake install
+	oe_runmake install INSTALL_DIR=${D}
 }
 
